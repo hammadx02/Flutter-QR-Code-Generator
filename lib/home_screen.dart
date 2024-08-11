@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             Container(
               height: 400,
@@ -80,10 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: QrImageView(
                   data: qrData,
                   version: QrVersions.auto,
-                  size: 300.0,
-                  dataModuleStyle: const QrDataModuleStyle(
+                  size: 300,
+                  dataModuleStyle: QrDataModuleStyle(
                     dataModuleShape: QrDataModuleShape.circle,
-                    color: Colors.black,
+                    color: blackColor,
                   ),
                   eyeStyle: QrEyeStyle(
                     eyeShape: QrEyeShape.square,
@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     'Generate QR-Code',
                     style: GoogleFonts.raleway(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.w600,
                       color: blackColor,
                     ),
