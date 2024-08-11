@@ -20,6 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
   final qrKey = GlobalKey();
 
   @override
+  void dispose() {
+    qrDataController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blackColor,
