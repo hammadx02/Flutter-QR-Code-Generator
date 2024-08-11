@@ -14,6 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Color blackColor = const Color(0XFF0C110F);
   Color buttonColor = const Color(0XFF00FFAE);
 
+  String qrData = '';
+  TextEditingController qrDataController = TextEditingController();
+  final qrKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +76,16 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 color: buttonColor,
                 borderRadius: BorderRadius.circular(100),
+              ),
+              child: Center(
+                child: Text(
+                  'Generate QR-Code',
+                  style: GoogleFonts.raleway(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: blackColor,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
