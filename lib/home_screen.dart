@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Color whiteColor = const Color(0XFFF2F2F2);
   Color blackColor = const Color(0XFF0C110F);
+  Color buttonColor = const Color(0XFF00FFAE);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,19 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
           IconlyLight.category,
           color: whiteColor,
         ),
-        actions: const [
+        actions: [
           Icon(
             IconlyLight.search,
-            color: Color(0XFFF2F2F2),
+            color: whiteColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: 12,
           ),
           Icon(
             IconlyLight.scan,
-            color: Color(0XFFF2F2F2),
+            color: whiteColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
         ],
@@ -49,15 +51,31 @@ class _HomeScreenState extends State<HomeScreen> {
               style: GoogleFonts.raleway(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: const Color(0XFFF2F2F2),
+                color: whiteColor,
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             Container(
-              height: 200,
+              height: 400,
               width: double.infinity,
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            const Spacer(),
+            Container(
+              height: 80,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: buttonColor,
+                borderRadius: BorderRadius.circular(100),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),
