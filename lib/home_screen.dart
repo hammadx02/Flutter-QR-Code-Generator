@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Color blackColor = const Color(0XFF0C110F);
   Color buttonColor = const Color(0XFF00FFAE);
 
-  String qrData = '';
+  String qrData = 'https://github.com/hammadx02';
   TextEditingController qrDataController = TextEditingController();
   final qrKey = GlobalKey();
 
@@ -68,22 +69,77 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(20),
               ),
+              child: RepaintBoundary(
+                key: qrKey,
+                child: QrImageView(
+                  data: qrData,
+                  version: QrVersions.auto,
+                  size: 300.0,
+                  dataModuleStyle: const QrDataModuleStyle(
+                    dataModuleShape: QrDataModuleShape.circle,
+                    color: Colors.black,
+                  ),
+                  eyeStyle: QrEyeStyle(
+                    eyeShape: QrEyeShape.square,
+                    color: blackColor,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            TextFormField(
+              controller: qrDataController,
+              style: GoogleFonts.raleway(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: whiteColor,
+              ),
+              cursorColor: buttonColor,
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                  borderSide: BorderSide(
+                    color: buttonColor,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                  borderSide: BorderSide(
+                    color: buttonColor,
+                  ),
+                ),
+              ),
             ),
             const Spacer(),
-            Container(
-              height: 80,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: buttonColor,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Text(
-                  'Generate QR-Code',
-                  style: GoogleFonts.raleway(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: blackColor,
+            GestureDetector(
+              onTap: () {
+                if (qrDataController.text.isNotEmpty) {
+                  setState(() {
+                    qrData = qrDataController.text;
+                  });
+                }
+              },
+              child: Container(
+                height: 80,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: buttonColor,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Center(
+                  child: Text(
+                    'Generate QR-Code',
+                    style: GoogleFonts.raleway(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: blackColor,
+                    ),
                   ),
                 ),
               ),
