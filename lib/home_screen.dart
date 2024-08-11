@@ -10,16 +10,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Color whiteColor = const Color(0XFFF2F2F2);
+  Color blackColor = const Color(0XFF0C110F);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFF0C110F),
+      backgroundColor: blackColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(
+        leading: Icon(
           IconlyLight.category,
-          color: Color(0XFFF2F2F2),
+          color: whiteColor,
         ),
         actions: const [
           Icon(
@@ -44,11 +46,18 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Text(
               'Create a personal QR-Code',
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.raleway(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
                 color: const Color(0XFFF2F2F2),
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 200,
+              width: double.infinity,
             ),
           ],
         ),
