@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  google_fonts: ^6.2.1
   iconly: ^1.0.1
   pretty_qr_code: ^3.3.0
 
